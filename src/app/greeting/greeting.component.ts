@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable }         from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
-import { Greeting }           from './greeting';
-import { GreetingService }    from './greeting.service';
+import { GreetingQueryResult } from './greeting-query-result';
+import { GreetingService } from './greeting.service';
 
 @Component({
   selector: 'app-greeting',
@@ -12,15 +12,14 @@ import { GreetingService }    from './greeting.service';
 })
 
 export class GreetingComponent implements OnInit {
-  //errorMessage: string;
-  queryResult: Greeting;
+  queryResult: GreetingQueryResult;
 
   constructor(private greetingService: GreetingService) { }
 
   ngOnInit() { this.queryGreeting(); }
 
   queryGreeting() {
-    this.queryResult = new Greeting();
-    this.greetingService.getGreeting().then(data=>this.queryResult.data=data);
+    this.queryResult = new GreetingQueryResult();
+    this.greetingService.getGreeting().then(data => this.queryResult.data = data);
   }
 }

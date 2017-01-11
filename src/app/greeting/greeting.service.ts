@@ -11,6 +11,9 @@ export class GreetingService {
   constructor (private http: Http) {}
 
   getGreeting (): Promise<string> {
+
+      console.log("AppSettings.GREETING_API_ENDPOINT -> " + AppSettings.GREETING_API_ENDPOINT);
+
       return this.http.get(AppSettings.GREETING_API_ENDPOINT)
                       .toPromise()
                       .then(response => response.json().data)
