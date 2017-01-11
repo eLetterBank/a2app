@@ -10,6 +10,7 @@ import { AppRoutingModule }     from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { GreetingService }    from './greeting/greeting.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    GreetingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
