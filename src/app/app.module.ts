@@ -12,6 +12,8 @@ import { GreetingComponent } from './greeting/greeting.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GreetingService }    from './greeting/greeting.service';
 
+import { LoggerService }    from './utils/logger.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { GreetingService }    from './greeting/greeting.service';
     AppRoutingModule
   ],
   providers: [
-    GreetingService
+    GreetingService,
+    LoggerService
   ],
   bootstrap: [AppComponent]
 })
