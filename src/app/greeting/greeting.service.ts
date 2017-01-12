@@ -21,22 +21,7 @@ export class GreetingService {
 
     return this.http.get(AppSettings.GREETING_API_ENDPOINT)
       .toPromise()
-      .then(response => response.json().data)
-      .catch(this.handleError);
-  }
-
-  private handleError(error: Response | any) {
-    // In a real world app, we might use a remote logging infrastructure
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error('ERROR:' + errMsg);
-
-    return Observable.throw(errMsg);
+      .then(response => response.json().data);
+      //.catch(error => this.logger.error(error)); //Let the global error handler to deal with it 
   }
 }

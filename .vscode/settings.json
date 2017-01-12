@@ -1,12 +1,24 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "files.exclude": {
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "**/*.js.map": true,
-        "**/*.js": {"when": "$(basename).ts"},
-        "**/node_modules/": true
-    }
-,
-"typescript.tsdk": "./node_modules/typescript/lib"
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/*.js.map": true,
+    "**/*.js": { // To hide TS generated JS files.
+      "when": "$(basename).ts"
+    },
+    "**/node_modules/": true // To hide node modules.
+  },
+  "typescript.tsdk": "./node_modules/typescript/lib",
+
+  /* Color of the indent marker for dark themes */
+  "indenticator.color.dark": "#888",
+  /* Color of the indent marker for light themes */
+  "indenticator.color.light": "#999",
+  /* Width of the indent marker in pixels */
+  "indenticator.width": 0.25,
+  /* Line style of the indent marker (e.g. "solid", "dashed", "dotted", ...) */
+  "indenticator.style": "dashed",
+  /* Wether to displays the current indent depth on the statusbar */
+  "indenticator.showCurrentDepthInStatusBar": true
 }

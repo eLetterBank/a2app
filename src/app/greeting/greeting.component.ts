@@ -22,7 +22,10 @@ export class GreetingComponent implements OnInit {
 
   queryGreeting() {
     this.logger.info("GreetingComponent.queryGreeting() - called!");
+
     this.queryResult = new GreetingQueryResult();
-    this.greetingService.getGreeting().then(data => this.queryResult.data = data);
+
+    this.greetingService.getGreeting()
+      .then(data => this.queryResult.data = data);
   }
 }
