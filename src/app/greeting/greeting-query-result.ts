@@ -1,6 +1,8 @@
 export class GreetingQueryResult {
-  data: string;
+  content: string;
+  titles: Array<string>;
   constructor() {
-    this.data = "";
+    this.content = "";
+    this.titles=new Array<string>();
   }
 }

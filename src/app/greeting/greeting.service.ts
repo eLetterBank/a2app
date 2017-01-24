@@ -22,6 +22,25 @@ export class GreetingService {
     return this.http.get(AppSettings.GREETING_API_ENDPOINT)
       .toPromise()
       .then(response => response.json().data);
-      //.catch(error => this.logger.error(error)); //Let the global error handler to deal with it 
+    //.catch(error => this.logger.error(error)); //Let the global error handler to deal with it 
+  }
+
+  getGreeting2(): Promise<GreetingQueryResult> {
+
+    this.logger.info("GreetingService.getGreeting2() - called!");
+    this.logger.info("AppSettings.GREETING_API_ENDPOINT -> " + AppSettings.GREETING_API_ENDPOINT);
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    let requestUrl = AppSettings.GREETING_API_ENDPOINT + "/greeting?";
+    let qry = "name=Tiger&titles=Mr., Dr., Mrs.";
+
+    this.logger.info(requestUrl);
+    this.logger.info(requestUrl + qry);
+
+    return this.http.get(requestUrl + qry, options)
+      .toPromise()
+      .then(response => response.json() as GreetingQueryResult);
   }
 }

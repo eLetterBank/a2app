@@ -25,7 +25,15 @@ export class GreetingComponent implements OnInit {
 
     this.queryResult = new GreetingQueryResult();
 
+    /*
     this.greetingService.getGreeting()
-      .then(data => this.queryResult.data = data);
+      .then(data => {
+        this.queryResult.content = data;
+        this.logger.debug("Frm COM--->" + this.queryResult.content);
+      });
+    */
+
+    this.greetingService.getGreeting2()
+      .then(qryResult => this.queryResult = qryResult);
   }
 }
