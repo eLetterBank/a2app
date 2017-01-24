@@ -36,7 +36,7 @@ export class GreetingService {
     let requestUrl = AppSettings.GREETING_API_ENDPOINT + "/greeting?";
     let qry = "name=Tiger&titles=Mr., Dr., Mrs.";
 
-    this.logger.info(requestUrl);
+    //this.logger.info(requestUrl);
     this.logger.info(requestUrl + qry);
 
     return this.http.get(requestUrl + qry, options)
